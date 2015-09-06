@@ -2,7 +2,7 @@ function! TTFZoom(delta)
 python << EOF
 import re
 gfn = vim.eval("&gfn")
-mat = re.compile("([a-zA-Z ]+)(\d+)")
+mat = re.compile("([a-zA-Z_ ]+)(\d+)")
 mato = re.match(mat, gfn)
 newsz = 0
 if not mato:
