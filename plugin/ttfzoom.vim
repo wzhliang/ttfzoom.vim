@@ -2,11 +2,11 @@ function! TTFZoom(delta)
 python << EOF
 import re
 gfn = vim.eval("&gfn")
-mat = re.compile("([a-zA-Z_ ]+)(\d+)")
+mat = re.compile("([a-zA-Z_: ]+)(\d+)")
 mato = re.match(mat, gfn)
 newsz = 0
 if not mato:
-	print "Cannot handle current font: ", gfn
+	print ("Cannot handle current font: %s" % gfn)
 else:
 	newsz = int(mato.group(2)) + int(vim.eval('a:delta'))
 	if newsz > 0:
